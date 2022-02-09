@@ -29,6 +29,27 @@
     top_level: true
     expected:
       - user
+      - at: process.entry_leader
+        as: user
+        short_override: The effective group (egid) of the entry leader.
+      - at: process.session_leader
+        as: user
+        short_override: The effective group (egid) of the session leader.
+      - at: process.group_leader
+        as: user
+        short_override: The effective group (egid) of the group leader.
+      - at: process.parent
+        as: user
+        short_override: The effective group (egid) of the parent process.
+      - at: group
+        as: real
+        short_override: The real group (rgid).
+      - at: group
+        as: saved
+        short_override: The saved group (sgid).
+      - at: group
+        as: supplemental # needs ECS tooling updates to support arrays of fieldsets
+        short_override: An array of supplemental groups.
 
   fields:
 

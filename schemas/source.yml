@@ -27,7 +27,15 @@
     fields are considered the baseline and should always be filled if an event contains source
     and destination details from a network transaction. If the event also contains identification of the
     client and server roles, then the client and server fields should also be populated.
+
   type: group
+  reusable:
+    top_level: true
+    expected:
+      - at: process.entry_meta
+        as: source
+        short_override: Details about the remote SSH connection.
+
   fields:
 
     - name: address

@@ -34,6 +34,15 @@
       - at: threat.enrichments.indicator
         as: file
         beta: Reusing the `file` fields in this location is currently considered beta.
+      - at: file_description
+        as: file
+        short_override: Details about a file
+      - at: file_description
+        as: pipe
+        short_override: Details about a pipe
+      - at: file_description
+        as: fifo
+        short_override: Details about a FIFO
   fields:
     - name: name
       level: extended
@@ -226,3 +235,19 @@
 
       short: A fork is additional data associated with a filesystem object.
       example: Zone.Identifer
+
+    - name: file.block_device.major
+      level: extended
+      type: long
+      short: The major block device number.
+      description: >
+        The major number identifies the driver associated with the device.
+      example: 1
+
+    - name: file.block_device.minor
+      level: extended
+      type: long
+      short: The minor block device number.
+      description: >
+        The minor number is used only by the driver specified by the major number; other parts of the kernel don’t use it, and merely pass it along to the driver. It is common for a driver to control several devices; the minor number provides a way for the driver to differentiate among them.
+      example: 128

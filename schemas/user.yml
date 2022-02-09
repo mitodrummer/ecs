@@ -37,11 +37,27 @@
         as: target
         short_override: Targeted user of action taken.
       - at: user
-        as: effective
-        short_override: User whose privileges were assumed.
-      - at: user
         as: changes
         short_override: Captures changes made to a user.
+      - at: process.entry_leader
+        as: user
+        short_override: The effective user (euid) of the entry leader.
+      - at: process.session_leader
+        as: user
+        short_override: The effective user (euid) of the session leader.
+      - at: process.group_leader
+        as: user
+        short_override: The effective user (euid) of the group leader.
+      - at: process.parent
+        as: user
+        short_override: The effective user (euid) of the parent process.
+      - at: user
+        as: saved
+        short_override: The saved user (suid).
+      - at: user
+        as: real
+        short_override: The real user (ruid). Identifies the real owner of the process.
+
 
   type: group
   fields:
